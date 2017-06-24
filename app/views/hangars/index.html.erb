@@ -1,0 +1,37 @@
+<h2>Hangar List</h2>
+<table class="table">
+  <thead class="thead-default">
+    <tr>
+      <th>Number / ID</th>
+      <th>Type</th>
+      <th>Size</th>
+      <th>Last payment</th>
+      <th>Tennant Name</th>
+      <th>Tail #</th>
+      <th>Leased? </th>
+      <th colspan="13"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hangars.each do |hangar| %>
+        <tr class="<%= hangar.leased ? 'warning' : 'success' %>">
+        <td><%= hangar.hangar_number %></td>
+        <td><%= hangar.hangar_type %></td>
+        <td><%= hangar.size %></td>
+        <td><%= hangar.last_payment %></td>
+        <td><%= hangar.tennant %></td>
+        <td><%= hangar.tail_number %></td>
+        <td><%= hangar.leased %></td>
+        <td><%= link_to_if hangar.leased == false, 'Reserve', pages_lease_path {}%></td>
+        <td><%= link_to 'Show', hangar %></td>
+        <td><%= link_to 'Edit', edit_hangar_path(hangar) %></td>
+        <td><%= link_to 'Destroy', hangar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'List a New Hangar', new_hangar_path %>

@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Lease start:</strong>
+  <%= @lease.lease_start %>
+</p>
+
+<p>
+  <strong>Lease term:</strong>
+  <%= @lease.lease_term %>
+</p>
+
+<p>
+  <strong>Lease end:</strong>
+  <%= @lease.lease_end %>
+</p>
+
+<p>
+  <strong>Lease signed:</strong>
+  <%= @lease.lease_signed %>
+</p>
+
+<p>
+  <strong>Signature:</strong>
+  <%= @lease.signature %>
+</p>
+
+<p>
+  <strong>Additional file:</strong>
+  <%= @lease.additional_file %>
+</p>
+
+<%= link_to 'Edit', edit_lease_path(@lease) %> |
+<%= link_to 'Back', leases_path %>

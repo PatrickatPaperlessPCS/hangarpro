@@ -1,0 +1,1 @@
+json.partial! "hangars/hangar", hangar: @hangar

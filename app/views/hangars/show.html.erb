@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @hangar.hangar_type %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @hangar.size %>
+</p>
+
+<p>
+  <strong>Last payment:</strong>
+  <%= @hangar.last_payment %>
+</p>
+
+<p>
+  <strong>First payment:</strong>
+  <%= @hangar.first_payment %>
+</p>
+
+<p>
+  <strong>Leased:</strong>
+  <%= @hangar.leased %>
+</p>
+
+<%= link_to 'Edit', edit_hangar_path(@hangar) %> |
+<%= link_to 'Back', hangars_path %>

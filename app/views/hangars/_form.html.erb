@@ -1,0 +1,45 @@
+<%= form_for(@hangar) do |f| %>
+  <% if @hangar.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@hangar.errors.count, "error") %> prohibited this hangar from being saved:</h2>
+
+      <ul>
+      <% @hangar.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <strong>Hangar Number/ID</strong><br>
+    <%= f.text_field :hangar_number %>
+  </div>
+  <div class="field">
+    <%= f.select :hangar_type, ['Open / Shade', 'Enclosed T Hangar', 'Standard', 'Other'], :prompt => 'Select One' %>
+  </div>
+  <div class="field">
+    <%= f.label :size %><br>
+    <%= f.text_field :size %>
+  </div>
+  <div class="field">
+    <%= f.label :last_payment %><br>
+    <%= f.date_select :last_payment %>
+  </div>
+
+    <div class="field">
+    Tennant's Name<br>
+    <%= f.text_field :tennant %>
+  </div>
+    <div class="field">
+    <%= f.label :tail_number %><br>
+    <%= f.text_field :tail_number %>
+  </div>
+  <div class="field">
+    Currently leased:
+    <%= f.check_box :leased %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

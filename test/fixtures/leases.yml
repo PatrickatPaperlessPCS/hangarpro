@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  lease_start: 2017-06-23
+  lease_term: 1
+  lease_end: 2017-06-23
+  lease_signed: false
+  signature: MyString
+  additional_file: MyString
+
+two:
+  lease_start: 2017-06-23
+  lease_term: 1
+  lease_end: 2017-06-23
+  lease_signed: false
+  signature: MyString
+  additional_file: MyString

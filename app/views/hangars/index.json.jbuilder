@@ -1,0 +1,1 @@
+json.array! @hangars, partial: 'hangars/hangar', as: :hangar

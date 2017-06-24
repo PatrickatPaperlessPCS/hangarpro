@@ -1,0 +1,41 @@
+<%= form_for(@lease) do |f| %>
+  <% if @lease.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lease.errors.count, "error") %> prohibited this lease from being saved:</h2>
+
+      <ul>
+      <% @lease.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :lease_start %><br>
+    <%= f.date_select :lease_start %>
+  </div>
+  <div class="field">
+    <%= f.label :lease_term %><br>
+    <%= f.number_field :lease_term %>
+  </div>
+  <div class="field">
+    <%= f.label :lease_end %><br>
+    <%= f.date_select :lease_end %>
+  </div>
+  <div class="field">
+    <%= f.label :lease_signed %><br>
+    <%= f.check_box :lease_signed %>
+  </div>
+  <div class="field">
+    <%= f.label :signature %><br>
+    <%= f.text_field :signature %>
+  </div>
+  <div class="field">
+    <%= f.label :additional_file %><br>
+    <%= f.text_field :additional_file %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

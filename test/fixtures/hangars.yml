@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 
+  size: MyString
+  last_payment: 2017-06-23
+  first_payment: 2017-06-23
+  leased: false
+
+two:
+  type: 
+  size: MyString
+  last_payment: 2017-06-23
+  first_payment: 2017-06-23
+  leased: false
