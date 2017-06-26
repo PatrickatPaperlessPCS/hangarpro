@@ -13,7 +13,14 @@
     <tr class="<%= hangar.leased ? 'warning' : 'success' %>">
     <td><%= hangar.hangar_number %></td>
     <td><%= hangar.size %></td>
-    <td><%= hangar.leased %></td>
+    <td>
+                <% if hangar.leased == false %>
+          <%= link_to 'Reserve', pages_lease_path %></td>
+          <% else %>
+          Currently Leased
+          <% end %>
+
+    </td>
       </tr>
     <% end %>
   </tbody>

@@ -1,12 +1,12 @@
-<p id="notice"><%= notice %></p>
-
+<div style="padding-left: 25px;">
 <p>
   <strong>Airport Name:</strong>
-  <%= @airport.name %>
-  <strong>Airport Code:</strong>
-  <%= @airport.id_code %>
+  <%= @airport.name %><br>
+  <strong>Location:</strong> <%= @airport.formatted_city_state %><br>
+  <strong>Airport Codes:</strong>
+  <%= @airport.id_code %> | <%= @airport.iata_code %>
 <p>
-
+</div>
 <%= if @airport.hangars.present?
 
 render "airport_hangars_list"
@@ -15,6 +15,6 @@ render "no_list"
  end %> 
 
 <hr>
-
+</div>
 <%= link_to 'Edit', edit_airport_path(@airport) %> |
 <%= link_to 'Back', airports_path %>

@@ -22,7 +22,12 @@
         <td><%= hangar.hangar_number %></td>
         <td><%= hangar.hangar_type %></td>
         <td><%= hangar.size %></td>
-        <td><%= link_to_if hangar.leased == false, 'Reserve', pages_lease_path {}%></td>
+        <td>
+          <% if hangar.leased == false %>
+          <%= link_to 'Reserve', pages_lease_path %></td>
+          <% else %>
+          
+          <% end %>
         <td><%= link_to 'Show', hangar %></td>
         <td><%= link_to 'Edit', edit_hangar_path(hangar) %></td>
         <td><%= link_to 'Destroy', hangar, method: :delete, data: { confirm: 'Are you sure?' } %></td>
