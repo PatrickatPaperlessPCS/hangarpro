@@ -1,0 +1,20 @@
+<table class="table">
+  <thead class="thead-default">
+<tr>
+	<th>Hangar Number</th>
+	<th>Size</th>
+	<th>Leased?</th>
+	<th colspan="13"></th>
+</tr>
+  </thead>
+  <tbody>  
+<tr>
+    <% @airport.hangars.each do |hangar| %>
+    <tr class="<%= hangar.leased ? 'warning' : 'success' %>">
+    <td><%= hangar.hangar_number %></td>
+    <td><%= hangar.size %></td>
+    <td><%= hangar.leased %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

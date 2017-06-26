@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+ <%= f.collection_select :airport_id, Airport.all, :id, :formatted_name %>
   <div class="field">
     <strong>Hangar Number/ID</strong><br>
     <%= f.text_field :hangar_number %>

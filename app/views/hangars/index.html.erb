@@ -3,6 +3,7 @@
   <thead class="thead-default">
     <tr>
       <th>Number / ID</th>
+      <th>Number / ID</th>
       <th>Type</th>
       <th>Size</th>
       <th>Last payment</th>
@@ -16,13 +17,11 @@
   <tbody>
     <% @hangars.each do |hangar| %>
         <tr class="<%= hangar.leased ? 'warning' : 'success' %>">
+        <td><%= hangar.airport.formatted_name if hangar.airport %></td>
+        <td><%= hangar.airport.formatted_city_state if hangar.airport %></td>
         <td><%= hangar.hangar_number %></td>
         <td><%= hangar.hangar_type %></td>
         <td><%= hangar.size %></td>
-        <td><%= hangar.last_payment %></td>
-        <td><%= hangar.tennant %></td>
-        <td><%= hangar.tail_number %></td>
-        <td><%= hangar.leased %></td>
         <td><%= link_to_if hangar.leased == false, 'Reserve', pages_lease_path {}%></td>
         <td><%= link_to 'Show', hangar %></td>
         <td><%= link_to 'Edit', edit_hangar_path(hangar) %></td>

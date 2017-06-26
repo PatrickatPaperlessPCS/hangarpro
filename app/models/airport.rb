@@ -1,6 +1,13 @@
 class Airport < ActiveRecord::Base
 
 	has_many :hangars
-	has_many :users
-	has_many :leases
+
+def formatted_name
+  "#{id_code} | #{name} | #{iata_code}"
+end
+
+def formatted_city_state
+	"#{city}, #{state} #{country}"
+end
+
 end

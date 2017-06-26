@@ -69,6 +69,6 @@ class HangarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hangar_params
-      params.require(:hangar).permit(:hangar_type, :size, :last_payment, :first_payment, :leased, :hangar_number, :tennant, :tail_number)
+      params.require(:hangar).permit( :airport_id, :hangar_type, :size, :last_payment, :first_payment, :leased, :hangar_number, :tennant, :tail_number)
     end
 end

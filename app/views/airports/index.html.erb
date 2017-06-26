@@ -2,11 +2,12 @@
 
 <h1>Listing Airports</h1>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-default">
     <tr>
       <th>Name</th>
-      <th>Id code</th>
+      <th>IATA</th>
+      <th>IACO</th>
       <th>Lease</th>
       <th colspan="3"></th>
     </tr>
@@ -16,6 +17,7 @@
     <% @airports.each do |airport| %>
       <tr>
         <td><%= airport.name %></td>
+        <td><%= airport.iata_code %> 
         <td><%= airport.id_code %></td>
         <td><%= airport.lease_id %></td>
         <td><%= link_to 'Show', airport %></td>
