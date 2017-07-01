@@ -1,5 +1,7 @@
 class AirportsController < ApplicationController
   before_action :set_airport, only: [:show, :edit, :update, :destroy]
+  skip_before_filter :authenticate_user!, only: [:show, :index]
+  # before_action :set_hangar
 
   # GET /airports
   # GET /airports.json
@@ -10,6 +12,7 @@ class AirportsController < ApplicationController
   # GET /airports/1
   # GET /airports/1.json
   def show
+
   end
 
   # GET /airports/new
@@ -64,11 +67,14 @@ class AirportsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_airport
-      @airport = Airport.find(params[:id])
+       @airport = Airport.friendly.find(params[:id])
     end
 
+    def set_hangar
+      @hangar = Hangar.find(params[:id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def airport_params
-      params.require(:airport).permit(:iata_code, :city, :state, :country, :name, :id_code, :lease_id)
+      params.require(:airport).permit(:map_url, :slug, :iata_code, :city, :state, :country, :airport_manager, :manager_phone, :name, :id_code, :lat, :long, :lease_id)
     end
 end

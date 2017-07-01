@@ -2,6 +2,7 @@
   <thead class="thead-default">
 <tr>
 	<th>Hangar Number</th>
+  <th>Hangar Type</th>
 	<th>Size</th>
 	<th>Leased?</th>
 	<th colspan="13"></th>
@@ -10,12 +11,13 @@
   <tbody>  
 <tr>
     <% @airport.hangars.each do |hangar| %>
-    <tr class="<%= hangar.leased ? 'warning' : 'success' %>">
+    <tr class="<%= hangar.available ? 'success' : 'danger' %>">
     <td><%= hangar.hangar_number %></td>
+    <td><%= hangar.hangar_type %></td>
     <td><%= hangar.size %></td>
     <td>
-                <% if hangar.leased == false %>
-          <%= link_to 'Reserve', pages_lease_path %></td>
+                <% if hangar.available == true %>
+          <%= link_to 'Available! Reserve Now', hangar_path(hangar) %></td>
           <% else %>
           Currently Leased
           <% end %>

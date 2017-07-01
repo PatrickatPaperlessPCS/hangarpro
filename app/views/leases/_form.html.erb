@@ -1,4 +1,4 @@
-<%= form_for(@lease) do |f| %>
+<%= form_for [@hangar, @lease] do |f| %>
   <% if @lease.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@lease.errors.count, "error") %> prohibited this lease from being saved:</h2>
@@ -16,12 +16,8 @@
     <%= f.date_select :lease_start %>
   </div>
   <div class="field">
-    <%= f.label :lease_term %><br>
+    Lease Term (in days)<br>
     <%= f.number_field :lease_term %>
-  </div>
-  <div class="field">
-    <%= f.label :lease_end %><br>
-    <%= f.date_select :lease_end %>
   </div>
   <div class="field">
     <%= f.label :lease_signed %><br>

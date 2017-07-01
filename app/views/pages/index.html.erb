@@ -1,5 +1,7 @@
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -22,19 +24,30 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
 </head>
+
 <body>
+
     <!-- Header -->
     <a name="about"></a>
-    <div class="intro-header-information">
+    <div class="intro-header">
         <div class="container">
 
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>Successful operators know - they're in the real estate business</h1>
-                        <h3>Leasing, managing, and get paid for hangar space easier and faster than ever before</h3>
+                        <h1>Hangar Rent</h1>
+                        <h3>The simpliest way to find, lease, and pay for your aircraft's home</h3>
                         <hr class="intro-divider">
+                        <ul class="list-inline intro-social-buttons">
+                            <li>
+                                <a href="/airports" class="btn btn-warning btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Find My Next Hangar</span></a>
+                            </li>
+                            <li>
+                                <a href="pages/information" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Rent My Hangar Space</span></a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
@@ -55,11 +68,11 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Death to the Stock Photo:<br>Special Thanks</h2>
-                    <p class="lead">A special thanks to <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a> for providing the photographs that you see in this template. Visit their website to become a member.</p>
+                    <h2 class="section-heading">Find the perfect home for your aircraft online:
+                    <p class="lead">Whether you're looking for a shared hangar for your turbprop or an enclosed T hangar for your classic Aeronca project, you'll find options at your local airports</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/ipad.png" alt="">
+                    <%= image_tag(("enclosed_t.jpg"), class:"img-responsive")%>
                 </div>
             </div>
 
@@ -77,11 +90,11 @@
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
-                    <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
+                    <h2 class="section-heading">Find, lease, and pay online</h2>
+                    <p class="lead">We make starting your hangar lease simple through our paperless system.  Paying is a breeze with automatic ACH payments.</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="img/dog.png" alt="">
+                    <%= image_tag(("paid.jpg"), class:"img-responsive")%>
                 </div>
             </div>
 
@@ -111,8 +124,17 @@
         <!-- /.container -->
 
     </div>
+    <!-- /.content-section-a -->
+
+
 
 <%= render 'footer' %>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
 
 </body>
 

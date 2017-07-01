@@ -1,14 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Airports</h1>
+<h1>Airports Listing</h1>
 
 <table class="table">
   <thead class="thead-default">
     <tr>
       <th>Name</th>
-      <th>IATA</th>
-      <th>IACO</th>
-      <th>Lease</th>
+      <th>Location</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,18 +14,21 @@
   <tbody>
     <% @airports.each do |airport| %>
       <tr>
-        <td><%= airport.name %></td>
-        <td><%= airport.iata_code %> 
-        <td><%= airport.id_code %></td>
-        <td><%= airport.lease_id %></td>
-        <td><%= link_to 'Show', airport %></td>
+        <td><%= airport.formatted_name  %></td>
+        <td><%= airport.formatted_city_state %></td>
+        <td><%= link_to 'View Airport Details & Available Hangars', airport %></td>
+        <% if current_user && current_user.admin? %>
         <td><%= link_to 'Edit', edit_airport_path(airport) %></td>
         <td><%= link_to 'Destroy', airport, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
+<center>
+<% if current_user && current_user.admin? %>
 <%= link_to 'New Airport', new_airport_path %>
+<% end %>
+</center>

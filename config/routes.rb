@@ -1,18 +1,22 @@
 Rails.application.routes.draw do
 
-  resources :leases
+ 
   resources :airports
   devise_for :users
-  resources :hangars
+  resources :hangars do
+     resources :leases
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'pages#home'
+  root 'pages#index'
   get 'pages/map'
   get 'pages/lease'
   get 'pages/information'
+  get 'pages/user_list'
+  get 'admin_panel/user_list'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

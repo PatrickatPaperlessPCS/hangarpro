@@ -6,7 +6,31 @@
   <strong>Airport Codes:</strong>
   <%= @airport.id_code %> | <%= @airport.iata_code %>
 <p>
-</div>
+
+<center>
+<% if @airport.map_url.present? %>
+This
+		<iframe
+		  width="90%"
+		  height="550"
+		  frameborder="0" style="border:0"
+		  src="<%= @airport.map_url %>" allowfullscreen>
+		</iframe>
+<% else %>
+		<% if @airport.lat.present? && @airport.long.present? %>
+		
+		<iframe
+		  width="90%"
+		  height="550"
+		  frameborder="0" style="border:0"
+		  src="https://www.google.com/maps/embed/v1/view?key=AIzaSyCYJGkmL5toyKiUUHWvYwNyDxH_qdC5qhM&center=<%= to_decimal @airport.lat %>,<%= to_decimal @airport.long %>&zoom=18&maptype=satellite" allowfullscreen>
+		</iframe>
+		
+		<% end %>
+<% end %>
+</center>
+
+
 <%= if @airport.hangars.present?
 
 render "airport_hangars_list"
@@ -16,5 +40,10 @@ render "no_list"
 
 <hr>
 </div>
-<%= link_to 'Edit', edit_airport_path(@airport) %> |
+<center>
+
+<% if current_user && current_user.admin? %>
+<%= link_to 'Edit', edit_airport_path(@airport)  %> <% end %>
 <%= link_to 'Back', airports_path %>
+</center>
+

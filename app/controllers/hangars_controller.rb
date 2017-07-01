@@ -1,6 +1,6 @@
 class HangarsController < ApplicationController
   before_action :set_hangar, only: [:show, :edit, :update, :destroy]
-
+  skip_before_filter :authenticate_user!, only: [:show, :index]
   # GET /hangars
   # GET /hangars.json
   def index

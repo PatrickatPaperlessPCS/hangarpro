@@ -11,19 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170626035748) do
+ActiveRecord::Schema.define(version: 20170701205321) do
 
   create_table "airports", force: :cascade do |t|
     t.string   "name"
     t.string   "id_code"
     t.string   "lease_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
     t.string   "iata_code"
     t.string   "city"
     t.string   "state"
     t.string   "country"
+    t.string   "airport_manager"
+    t.string   "manager_phone"
+    t.string   "slug"
+    t.string   "lat"
+    t.string   "long"
+    t.string   "map_url"
   end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "hangars", force: :cascade do |t|
     t.string   "type"
@@ -38,6 +57,7 @@ ActiveRecord::Schema.define(version: 20170626035748) do
     t.string   "hangar_number"
     t.string   "hangar_type"
     t.integer  "airport_id"
+    t.string   "image_url"
   end
 
   create_table "leases", force: :cascade do |t|
@@ -51,6 +71,7 @@ ActiveRecord::Schema.define(version: 20170626035748) do
     t.datetime "updated_at",         null: false
     t.integer  "associated_user"
     t.integer  "associated_airport"
+    t.integer  "hangar_id"
   end
 
   create_table "users", force: :cascade do |t|

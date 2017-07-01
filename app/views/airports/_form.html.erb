@@ -27,6 +27,14 @@
     <%= f.label :country %><br>
     <%= f.text_field :country %>
   </div>
+    <div class="field">
+    <%= f.label :lat %><br>
+    <%= f.text_field :lat %>
+  </div>
+    <div class="field">
+    <%= f.label :long %><br>
+    <%= f.text_field :long %>
+  </div>
 
   <div class="field">
     IATA Code <br>
@@ -37,8 +45,16 @@
     <%= f.text_field :id_code %>
   </div>
   <div class="field">
-    <%= f.label :lease_id %><br>
-    <%= f.text_field :lease_id %>
+    <%= f.label :airport_manager %><br>
+    <%= f.text_field :airport_manager %>
+  </div>
+    <div class="field">
+    <%= f.label :manager_phone %><br>
+    <%= f.text_field :manager_phone %>
+  </div>
+    <div class="field">
+    Map URL<br>
+    <%= f.text_field :map_url %>
   </div>
   <div class="actions">
     <%= f.submit %>

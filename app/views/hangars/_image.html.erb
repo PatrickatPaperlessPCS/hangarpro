@@ -1,0 +1,29 @@
+<% if @hangar.image_url.present? %>
+	show this
+<% else %>
+<div class="hangar_images">
+<% if @hangar.hangar_type == "Open / Shade"%>
+<%= image_tag("shade.jpg") %>
+<br>*Representative Photo Only
+<% end %>
+
+<% if @hangar.hangar_type == "Standard"%>
+<%= image_tag("standard.jpg") %>
+<br>*Representative Photo Only
+<% end %>
+
+<% if @hangar.hangar_type == "Enclosed T Hangar"%>
+<%= image_tag("enclosed_t.jpg") %>
+<br>*Representative Photo Only
+<% end %>
+
+<% if @hangar.hangar_type == "Outdoor Tiedown"%>
+<%= image_tag("tie_down.jpg") %>
+<br>*Representative Photo Only
+<% end %>
+<% if @hangar.hangar_type == "Shared"%>
+<%= image_tag("shared.jpg") %>
+<br>*Representative Photo Only
+<% end %>
+<div>
+<% end %>
