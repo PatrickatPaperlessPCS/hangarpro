@@ -32,7 +32,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <h1>Successful operators know - they're in the real estate business</h1>
+                        <h1>Successful operators know - high occupancy is the cornerstone of a successful airport</h1>
                         <h3>Leasing, managing, and get paid for hangar space easier and faster than ever before</h3>
                         <hr class="intro-divider">
                     </div>
@@ -55,11 +55,11 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Death to the Stock Photo:<br>Special Thanks</h2>
-                    <p class="lead">A special thanks to <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a> for providing the photographs that you see in this template. Visit their website to become a member.</p>
+                    <h2 class="section-heading">Custom aerial maps help tennants visualize the available hangar space</h2>
+                    <p class="lead">Let potiential tennants view available hangars with an arieal map that makes choosing the right space simple.  Current tennants can also monitor the map for potiential upgrades</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/ipad.png" alt="">
+                    <%= image_tag(("hangarview.png"), class:"img-responsive")%>
                 </div>
             </div>
 
@@ -77,11 +77,12 @@
                 <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">3D Device Mockups<br>by PSDCovers</h2>
-                    <p class="lead">Turn your 2D designs into high quality, 3D product shots in seconds using free Photoshop actions by <a target="_blank" href="http://www.psdcovers.com/">PSDCovers</a>! Visit their website to download some of their awesome, free photoshop actions!</p>
+                    <h2 class="section-heading">7 out of 10 pilots prefer making online bill payments</h2>
+                    <p class="lead">We make paying monthly hangar fees simple for pilots and airports.  Pilots can choose to pay by automatic draft or credit card.  Airports and hangar owners recieve one monthly check - on time, every time.</p>
                 </div>
                 <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <img class="img-responsive" src="img/dog.png" alt="">
+                    <%= image_tag(("paid.jpg"), class:"img-responsive")%>
+
                 </div>
             </div>
 
@@ -99,11 +100,11 @@
                 <div class="col-lg-5 col-sm-6">
                     <hr class="section-heading-spacer">
                     <div class="clearfix"></div>
-                    <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
-                    <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+                    <h2 class="section-heading">Keep tennants happy with simple maintenance request submission</h2>
+                    <p class="lead">Never again will a tennant have to track down the airport manager or hope the line guy tells someone about their leaky roof. <br>HangarPro makes it simple to submit a request for maintenance! </p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <img class="img-responsive" src="img/phones.png" alt="">
+                    <%= image_tag(("standard2.jpg"), class:"img-responsive")%>
                 </div>
             </div>
 
@@ -111,7 +112,8 @@
         <!-- /.container -->
 
     </div>
-
+    <!-- /.content-section-a -->
+<%= render 'pricing_table' %>
 <%= render 'footer' %>
 
 </body>

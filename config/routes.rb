@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   root 'pages#index'
   get 'pages/map'
   get 'pages/lease'
-  get 'pages/information'
+  get 'pages/information_for_airports'
   get 'pages/user_list'
   get 'admin_panel/user_list'
   # Example of regular route:
