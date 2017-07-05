@@ -8,3 +8,4 @@ class DropOwnersTable < ActiveRecord::Migration
   end
 end
 
+ 

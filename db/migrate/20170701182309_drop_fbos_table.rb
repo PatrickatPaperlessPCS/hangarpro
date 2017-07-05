@@ -6,4 +6,4 @@ class DropFbosTable < ActiveRecord::Migration
   def down
     fail ActiveRecord::IrreversibleMigration
   end
-end
+end 
