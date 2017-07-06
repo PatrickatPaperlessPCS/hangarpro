@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :airports do 
     collection { post :import }
   end
-  
+
   devise_for :users
   resources :hangars do
      resources :leases
@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   get 'pages/information_for_airports'
   get 'pages/user_list'
   get 'admin_panel/user_list'
+
+  get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
