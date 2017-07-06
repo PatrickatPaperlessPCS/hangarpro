@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
  
-  resources :airports
+  resources :airports do 
+    collection { post :import }
+  end
+  
   devise_for :users
   resources :hangars do
      resources :leases

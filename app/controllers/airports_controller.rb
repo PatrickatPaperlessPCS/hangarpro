@@ -64,6 +64,12 @@ class AirportsController < ApplicationController
     end
   end
 
+  def import
+    Airport.import(params[:file])
+    redirect_to airports_path, notice: "Airports Added Successfully"
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_airport

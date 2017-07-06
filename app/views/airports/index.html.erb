@@ -30,6 +30,13 @@ Click to view airport details and hangar availability.  If a no hangars are avai
 <br>
 <center>
 <% if current_user && current_user.admin? %>
+
+<h3>Import Airports</h3>
+<%= form_tag import_airports_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Bulk Upload" %>
+<% end %>
+
 <%= link_to 'New Airport', new_airport_path %>
 <% end %>
 </center>

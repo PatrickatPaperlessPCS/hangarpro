@@ -1,4 +1,5 @@
 <div style="padding-left: 25px;">
+<title>Available Hangars at <%= @airport.formatted_name %></title>	
 <p>
   <strong>Airport Name:</strong>
   <%= @airport.name %><br>
@@ -23,14 +24,14 @@ This
 		  width="90%"
 		  height="550"
 		  frameborder="0" style="border:0"
-		  src="https://www.google.com/maps/embed/v1/view?key=AIzaSyCYJGkmL5toyKiUUHWvYwNyDxH_qdC5qhM&center=<%= to_decimal @airport.lat %>,<%= to_decimal @airport.long %>&zoom=18&maptype=satellite" allowfullscreen>
+		  src="https://www.google.com/maps/embed/v1/view?key=AIzaSyCYJGkmL5toyKiUUHWvYwNyDxH_qdC5qhM&center=<%= to_decimal @airport.lat %>,<%= to_decimal @airport.long %>&zoom=15&maptype=satellite" allowfullscreen>
 		</iframe>
 		
 		<% end %>
 <% end %>
 </center>
 
-
+<h3> Available Hangars at <%= @airport.formatted_name %> </h3>
 <%= if @airport.hangars.present?
 
 render "airport_hangars_list"

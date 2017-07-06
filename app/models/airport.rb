@@ -16,12 +16,18 @@ extend FriendlyId
   end
 
 def formatted_name
-  "#{id_code} | #{name} | #{iata_code}"
+  "#{id_code} | #{name} AIRPORT"
 end
 
 def formatted_city_state
 	"#{city}, #{state} #{country}"
 end
+
+  def self.import(file)
+    CSV.foreach(file.path, headers: true) do |row|
+      Airport.create! row.to_hash
+    end
+  end
 
 end
 
