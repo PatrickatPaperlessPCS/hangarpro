@@ -6,9 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>       
   <meta name="google-site-verification" content="4j5Dz6NObT0u7yQ4wbslOrKvMczu37q_6s_hEd8At9k" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <%= render "layouts/navbar" %>
 <body>
+<p id="notice"><%= notice %></p>
 <%= yield %>
 </body>
 <% if Rails.env == "production"  %>
@@ -24,3 +26,4 @@
 </script>
 <% end %>
 </html>
+

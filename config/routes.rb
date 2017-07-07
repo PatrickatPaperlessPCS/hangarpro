@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
  
+  devise_for :owners
   resources :airports do 
     collection { post :import }
   end
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :hangars do
      resources :leases
+     resource :message, only: :create
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
   get 'pages/information_for_airports'
   get 'pages/user_list'
   get 'admin_panel/user_list'
+  get 'pages/owners_dashboard'
 
   get "/sitemap.xml" => "sitemap#index", :format => "xml", :as => :sitemap
   # Example of regular route:

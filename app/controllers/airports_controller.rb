@@ -1,6 +1,6 @@
 class AirportsController < ApplicationController
   before_action :set_airport, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :authenticate_user!, only: [:show, :index]
+  skip_before_filter :logged_in, only: [:show, :index]
   # before_action :set_hangar
 
   # GET /airports

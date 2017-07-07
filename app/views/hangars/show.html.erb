@@ -1,31 +1,42 @@
-<p id="notice"><%= notice %></p>
 <center><%= render 'image' %></center>
+<div class="padding15 hangarshow">
+  <div class="container-fluid">
+<center>  	
 <p>
-  <strong>Type:</strong>
-  <%= @hangar.hangar_type %>
+Airport: <%= @hangar.airport.formatted_name %><br>
+</p>
+<p>Location: <%= @hangar.airport.formatted_city_state %> </p>
+
+<p>
+  <strong>Type: </strong><%= @hangar.hangar_type %>
 </p>
 
 <p>
   <strong>Size:</strong>
   <%= @hangar.size %>
 </p>
-
 <p>
-  <strong>Last payment:</strong>
-  <%= @hangar.last_payment %>
+  <strong>Montly Rate: $</strong>
+  <%= @hangar.rate %>
 </p>
-
 <p>
-  <strong>First payment:</strong>
-  <%= @hangar.first_payment %>
+  <strong>Minumum Lease Term: </strong>
+  <%= @hangar.term %><i> (months)</i>
 </p>
+<% unless owner_signed_in? %>
+	Send an inquiry to the owner:
+	<%= form_for(Message.new, url: hangar_message_path(@hangar)) do |f| %>
+	<%= f.text_area :body, class:"form-control" %> 
+	<%= f.submit %> 
+	<% end %>
 
-<p>
-  <strong>Leased:</strong>
-  <%= @hangar.leased %>
-</p>
-<%= link_to 'Reserve', new_hangar_lease_path(@hangar) %>
+<hr>
+<center>
 
-
-<%= link_to 'Edit', edit_hangar_path(@hangar) %> |
+<%= link_to 'Reserve This Hangar |', new_hangar_lease_path(@hangar) %> <% end %> 
+<% if owner_signed_in? %>  <%= link_to 'Edit Listing |', edit_hangar_path(@hangar) %><% end %>
+  
 <%= link_to 'Back', hangars_path %>
+</center>
+</div>
+</div>

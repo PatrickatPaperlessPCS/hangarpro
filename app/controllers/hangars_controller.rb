@@ -1,6 +1,8 @@
 class HangarsController < ApplicationController
   before_action :set_hangar, only: [:show, :edit, :update, :destroy]
-  skip_before_filter :authenticate_user!, only: [:show, :index]
+  skip_before_filter :logged_in, only: [:show, :index]
+
+
   # GET /hangars
   # GET /hangars.json
   def index
@@ -11,6 +13,8 @@ class HangarsController < ApplicationController
   # GET /hangars/1.json
   def show
   end
+
+
 
   # GET /hangars/new
   def new
@@ -25,7 +29,7 @@ class HangarsController < ApplicationController
   # POST /hangars.json
   def create
     @hangar = Hangar.new(hangar_params)
-
+    @hangar.owner = current_owner
     respond_to do |format|
       if @hangar.save
         format.html { redirect_to @hangar, notice: 'Hangar was successfully created.' }
@@ -69,6 +73,6 @@ class HangarsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def hangar_params
-      params.require(:hangar).permit( :airport_id, :hangar_type, :size, :last_payment, :first_payment, :leased, :hangar_number, :tennant, :tail_number)
+      params.require(:hangar).permit(:term, :rate, :owner_id, :airport_id, :hangar_type, :size, :last_payment, :first_payment, :leased, :hangar_number, :tennant, :tail_number)
     end
 end

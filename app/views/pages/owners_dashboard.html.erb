@@ -1,4 +1,5 @@
-<h2>Available hangars</h2>
+Owner's Dashboard
+
 <table class="table">
   <thead class="thead-default">
     <tr>
@@ -13,7 +14,7 @@
   </thead>
 
   <tbody>
-    <% @hangars.each do |hangar| %>
+    <% @owners_hangars.each do |hangar| %>
         <tr class="<%= hangar.available ? 'success' : 'danger' %>">
         <td><%= hangar.airport.formatted_name if hangar.airport %></td>
         <td><%= hangar.airport.formatted_city_state if hangar.airport %></td>
@@ -32,11 +33,12 @@
   </tbody>
 </table>
 
-<br>
+<center>
 <% if current_user && current_user.admin? %>
-<%= link_to 'List a New Hangar', new_hangar_path %>
+<%= button_to 'List a New Hangar', new_hangar_path, method: :get %>
 <% end %>
 
 <% if owner_signed_in? %>
-<%= link_to 'List a New Hangar', new_hangar_path %>
+<%= button_to 'List a New Hangar', new_hangar_path, method: :get %>
 <% end %>
+</center>

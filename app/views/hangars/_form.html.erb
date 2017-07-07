@@ -10,20 +10,24 @@
       </ul>
     </div>
   <% end %>
-  <strong>Select Airport</strong><br>
+  <strong>Select Airport</strong>
  <%= f.collection_select :airport_id, Airport.all, :id, :formatted_name %></br><br>
   <div class="field">
-    <strong>Hangar Number or Tie Down ID</strong><br>
-    <%= f.text_field :hangar_number %>
+    <strong>Hangar Number or Tie Down ID: </strong>    <%= f.text_field :hangar_number %>
   </div>
 <strong>Hangar Style</strong>
-  <div class="field">
-    <%= f.select :hangar_type, ['Open / Shade', 'Enclosed T Hangar', 'Standard', 'Shared', 'Outdoor Tiedown', 'Other'], :prompt => 'Select One' %>
+  <div class="field"> <%= f.select :hangar_type, ['Open / Shade', 'Enclosed T Hangar', 'Standard', 'Shared', 'Outdoor Tiedown', 'Other'], :prompt => 'Select One' %>
   </div>
   <div class="field">
-    <%= f.label :size %><br>
-    <%= f.text_field :size %>
+    <%= f.label :size %> <%= f.text_field :size %>
   </div>
+    <div class="field">
+    Monthly Rate:  $<%= f.number_field :rate %>
+  </div>
+    <div class="field">
+    Minimum Lease Term: <%= f.number_field :term %> <i>(in months)</i>
+  </div>
+<center>  
   <div class="actions">
     <%= f.submit %>
   </div>

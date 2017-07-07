@@ -2,6 +2,7 @@ class Hangar < ActiveRecord::Base
 
 	belongs_to :airport
 	belongs_to :user
+	belongs_to :owner
 	has_one :lease
 
 	def available
