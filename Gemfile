@@ -29,6 +29,7 @@ gem 'friendly_id'
 gem "figaro"
 gem 'postmark-rails'
 gem 'stripe'
+gem 'pdfkit'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

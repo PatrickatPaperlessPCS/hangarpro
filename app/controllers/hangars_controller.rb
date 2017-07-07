@@ -12,6 +12,19 @@ class HangarsController < ApplicationController
   # GET /hangars/1
   # GET /hangars/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render    :pdf => "file",
+                  :template => 'hangars/show.html.erb',
+                  :javascript_delay => '500',
+                  :page_size =>        'Letter',
+               margin:  {   top:               5,                     # default 10 (mm)
+                            bottom:            5,
+                            left:              0,
+                            right:             0 }                  
+       end        
+     end 
   end
 
 

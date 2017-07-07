@@ -1,1 +1,13 @@
-<%= message.body %> But this works good
+You've received a new message about your hangar listed on HangarRent.com!
+<br>
+Simply reply directly to this email to contact the interested renter via email.
+<br>
+<br>
+<%= @message.subject %> says:
+<hr>
+<%= @message.body %>
+
+<hr>
+Rent this Hangar!
+
+<%= link_to 'Reserve This Hangar |', new_hangar_lease_path(@hangar) %>
