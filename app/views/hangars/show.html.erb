@@ -31,6 +31,7 @@ Airport: <%= @hangar.airport.formatted_name %><br>
 	<% end %>
 
 <hr>
+<%= link_to "View other hangars at this airport", airport_path(@hangar.airport_id) %>
 <center>
 
 <%= link_to 'Reserve This Hangar |', new_hangar_lease_path(@hangar) %> <% end %> 
