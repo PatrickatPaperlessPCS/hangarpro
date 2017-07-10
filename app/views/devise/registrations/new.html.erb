@@ -1,16 +1,17 @@
 <body class="subdued">
 </br>
 
-  <div class="modal-dialog">
+  <div class="modal-dialog two">
     <div class="modal-content">
 
       <div class="modal-body"><h2>Sign up</h2>
+<%= flash[:recaptcha_error] %>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   <div class="field">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, autofocus: true  %>
   </div>
   <div class="field">
     <%= f.label :last_name %><br>
@@ -22,11 +23,12 @@
   </div>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email%>
   </div>
   Select your airport:<br>
-
- <%= f.collection_select :airport_id, Airport.all, :id, :name %>
+<div class="select1">
+ <%= f.collection_select :airport_id, Airport.all, :id, :formatted_airport_city_state, class:"select1" %>
+</div> 
   <br />
   <div class="field">
     <%= f.label :password %>
@@ -40,10 +42,13 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
-
+  <center>
+<%= recaptcha_tags %>
+<br>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+  </center>  
 <% end %>
 
 <%= render "devise/shared/links" %>

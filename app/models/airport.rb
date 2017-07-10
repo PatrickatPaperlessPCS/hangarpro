@@ -23,6 +23,9 @@ def formatted_city_state
 	"#{city}, #{state} #{country}"
 end
 
+def formatted_airport_city_state
+  "#{id_code} | #{name} | #{city}, #{state} #{country}"
+end
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       Airport.create! row.to_hash
