@@ -6,7 +6,7 @@ class AirportsController < ApplicationController
   # GET /airports
   # GET /airports.json
   def index
-    @airports = Airport.all
+    @airports = Airport.all.order("created_at ASC")
   end
 
   # GET /airports/1
