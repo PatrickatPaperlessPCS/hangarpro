@@ -11,25 +11,66 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :lease_start %><br>
-    <%= f.date_select :lease_start %>
-  </div>
-  <div class="field">
-    Lease Term (in days)<br>
-    <%= f.number_field :lease_term %>
-  </div>
-  <div class="field">
-    <%= f.label :lease_signed %><br>
-    <%= f.check_box :lease_signed %>
-  </div>
-  <div class="field">
+Lease Start Date: <%= f.date_select :lease_start %>
+<br>
+Lessor : <%= @current_user.first_name %>
+<br>
+Lessee: <%= @hangar.owner.first_name %> 
+<br>
+Hangar being leased: <%= @hangar.hangar_number %>
+<br>
+Location of hangar: <%= @hangar.airport.formatted_name %>
+<br>
+Aircraft being stored in hangar: <input type="text"> N# <input type="text">
+<br>
+Term of lease: ­­­­­­­­­­­­­­<%= f.number_field :lease_term %> (in months)
+<br>
+Lease fee: $<%= @hangar.rate %>
+<br>
+<p class"lease">
+Conditions of lease:
+<br>
+
+Lessee must adhere to all city and county regulations and law that are relevant to the airport environment.
+<br>
+<br>
+
+Lessee shall keep the hangar in good condition. If the Lessee damages the hangar, he is fully responsible for full and complete repair of the damage in a timely manner. If the Lessee fails to make repairs in a timely manner the Lessor will make the repairs and bill all charges and cost to the Lessee and may place a lien upon the Lessee’s property against these costs.
+<br>
+<br>
+
+Lessee is forbidden to make modifications to the hangar or the hangar pad without Lessor’s approval. If Lessee makes modifications without approval, Lessee agrees to pay all costs to restore the changed property to its original condition.
+<br>
+<br>
+
+Lessee hereby agrees to defend, indemnify and hold harmless the Lessor from any claims, suits or liability for any activity of the Lessee while using the leased hangar.
+<br>
+<br>
+
+The hangar may not be subleased without Lessors approval in writing.
+<br>
+<br>
+If the Lessee fails to pay rent in a timely manner, or breaches any of the conditions of this agreement then Lessor has the grounds evict Lessee. After 15 days from receiving a written eviction notice from the Lessor, Lessee forfeits all rights under this agreement and will immediate vacate the leased hangar.
+</p>
+<hr>
+<br>
+             Lessor: Electronically Signed By <%= @hangar.owner.first_name %><%= @hangar.owner.last_name %> <br>
+
+             Date: <%= Date.today %>
+<br>
+<hr>
+
+             Lessee:  <div class="field">
     <%= f.label :signature %><br>
     <%= f.text_field :signature %>
-  </div>
+  </div><br>
+<hr>
+
+             Date: <%= Date.today %>
+
   <div class="field">
     <%= f.label :additional_file %><br>
-    <%= f.text_field :additional_file %>
+    <%= f.file_field :additional_file %>
   </div>
   <div class="actions">
     <%= f.submit %>
