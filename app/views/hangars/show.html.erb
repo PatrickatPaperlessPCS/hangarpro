@@ -23,21 +23,44 @@ Airport: <%= @hangar.airport.formatted_name %><br>
   <strong>Minumum Lease Term: </strong>
   <%= @hangar.term %><i> (months)</i>
 </p>
+<hr>
+<h4>Airport Map</h4>
+<% if @hangar.airport.map_url.present? %>
+    <iframe
+      width="90%"
+      height="550"
+      frameborder="0" style="border:0"
+      src="<%= @hangar.airport.map_url %>" allowfullscreen>
+    </iframe>
+<% else %>
+    <% if @hangar.airport.lat.present? && @hangar.airport.long.present? %>
+    
+    <iframe
+      width="90%"
+      height="550"
+      frameborder="0" style="border:0 center"
+      src="https://www.google.com/maps/embed/v1/view?key=AIzaSyCYJGkmL5toyKiUUHWvYwNyDxH_qdC5qhM&center=<%= to_decimal @hangar.airport.lat %>,<%= to_decimal @hangar.airport.long %>&zoom=15&maptype=satellite" allowfullscreen>
+    </iframe>
+    
+    <% end %>
+<% end %>
+<hr>
 <% unless owner_signed_in? %>
 	Send an inquiry to the owner:
 	<%= form_for(Message.new, url: hangar_message_path(@hangar)) do |f| %>
 	<%= f.text_area :body, class:"form-control" %> 
-	<%= f.submit %> 
+	<br>
+  <%= f.submit %> 
 	<% end %>
+  <br>
+  <center>
+<%= link_to "View other hangars at this airport", airport_path(@hangar.airport_id), :class => "btn btn-primary" %>
 
-<hr>
-<%= link_to "View other hangars at this airport", airport_path(@hangar.airport_id) %>
-<center>
 
-<%= link_to 'Reserve This Hangar |', new_hangar_lease_path(@hangar) %> <% end %> 
+<%= button_to 'Reserve This Hangar', new_hangar_lease_path(@hangar), :class => "btn btn-success" %> <% end %> 
 <% if owner_signed_in? %>  <%= link_to 'Edit Listing |', edit_hangar_path(@hangar) %><% end %>
   
-<%= link_to 'Back', hangars_path %>
+<%= link_to 'Back', hangars_path, :class => "btn btn-warning" %>
 </center>
 </div>
 </div>
