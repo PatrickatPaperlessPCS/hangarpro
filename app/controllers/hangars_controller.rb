@@ -6,7 +6,25 @@ class HangarsController < ApplicationController
   # GET /hangars
   # GET /hangars.json
   def index
-    @hangars = Hangar.all
+      @filterrific = initialize_filterrific(
+      Hangar,
+      params[:filterrific],
+      select_options: {
+        sorted_by: Hangar.options_for_sorted_by,
+      },
+      persistence_id: 'shared_key',
+      default_filter_params: {},
+      available_filters: [],
+    ) or return
+
+    @hangars = Hangar.order('hangar.airport.formatted_name  ASC')
+    @grouped_hangars = Hangar.group(:airport_id)
+
+     rescue ActiveRecord::RecordNotFound => e
+      # There is an issue with the persisted param_set. Reset it.
+      puts "Had to reset filterrific params: #{ e.message }"
+      redirect_to(reset_filterrific_url(format: :html)) and return
+
   end
 
   # GET /hangars/1
