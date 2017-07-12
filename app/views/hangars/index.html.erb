@@ -1,5 +1,4 @@
 <h2>Available hangars</h2>
-
 <table class="table">
   <thead class="thead-default">
     <tr>
@@ -14,7 +13,7 @@
   </thead>
 
   <tbody>
-    <% @grouped_hangars.each do |hangar| %>
+    <% @hangars.each do |hangar| %>
         <tr class="<%= hangar.available ? 'success' : 'danger' %>">
         <td><%= hangar.airport.formatted_name if hangar.airport %></td>
         <td><%= hangar.airport.formatted_city_state if hangar.airport %></td>

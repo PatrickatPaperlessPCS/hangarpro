@@ -6,8 +6,7 @@ class HangarsController < ApplicationController
   # GET /hangars
   # GET /hangars.json
   def index
-    @hangars = Hangar.order('hangar.airport.formatted_name  ASC')
-    @grouped_hangars = Hangar.group(:airport_id)
+    @hangars = Hangar.order('airport_id  ASC')
  end
 
   # GET /hangars/1
