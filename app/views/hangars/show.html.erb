@@ -57,7 +57,7 @@ Airport: <%= @hangar.airport.formatted_name %><br>
 <%= link_to "View other hangars at this airport", airport_path(@hangar.airport_id), :class => "btn btn-primary" %>
 
 
-<%= button_to 'Reserve This Hangar', new_hangar_lease_path(@hangar), :class => "btn btn-success" %> <% end %> 
+<%= link_to 'Reserve This Hangar', new_hangar_lease_path(@hangar), :class => "btn btn-success" %> <% end %> 
 <% if owner_signed_in? %>  <%= link_to 'Edit Listing |', edit_hangar_path(@hangar) %><% end %>
   
 <%= link_to 'Back', hangars_path, :class => "btn btn-warning" %>
